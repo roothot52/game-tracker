@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ profile_user.username }} — Профиль</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="box">
+
+    <!-- Назад -->
+    <div class="nav-links">
+        <a href="/">⬅ Назад на главную</a>
+    </div>
+
+    <!-- 🎥 Профиль стримера -->
+    <div class="profile-center">
+
+        <img class="profile-avatar"
+             src="{{ avatar_url or url_for('static', filename='default.png') }}"
+             alt="avatar">
+
+        <h1 class="profile-name">
+            {{ profile_user.username }}
+        </h1>
+
+        <!-- Статус -->
+        {% if twitch_status == "Online" %}
+            <p class="twitch-status online">● Online</p>
+        {% else %}
+            <p class="twitch-status offline">● Offline</p>
+        {% endif %}
+
+        <p class="subtitle">
+            Публичный список игр стримера
+        </p>
+
+    </div>
+
+    <!-- 🔍 Поиск -->
+    <div class="search-box">
+        <input type="text"
+               id="profileSearch"
+               placeholder="🔍 Поиск игры у стримера...">
+    </div>
+
+    <hr>
+
+    <!-- ✅ ПРОЙДЕНО -->
+    <h2 class="section-title">
+    🎮 Пройдено ({{ done_games|length }})
+</h2>
+
+<ul class="game-list">
+
+    <!-- показываем первые 5 -->
+    {% for game in done_games[:5] %}
+        <li class="game-card game-item">
+
+            {% if game.image_url %}
+                <img src="{{ game.image_url }}" alt="Обложка">
+            {% else %}
+                <div class="no-cover">No Cover</div>
+            {% endif %}
+
+            <span class="game-title">{{ game.title }}</span>
+
+        </li>
+    {% endfor %}
+
+</ul>
+
+<!-- если игр больше 5 -->
+{% if done_games|length > 5 %}
+    <details class="game-section">
+        <summary class="show-more">
+             Показать все игры
+        </summary>
+
+        <ul class="game-list">
+            {% for game in done_games[5:] %}
+                <li class="game-card game-item">
+
+                    {% if game.image_url %}
+                        <img src="{{ game.image_url }}" alt="Обложка">
+                    {% else %}
+                        <div class="no-cover">No Cover</div>
+                    {% endif %}
+
+                    <span class="game-title">{{ game.title }}</span>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </details>
+{% endif %}
+
+
+
+    <hr>
+
+    <!-- ❌ ДРОП -->
+    <h2 class="section-title">
+    💀 Дроп ({{ drop_games|length }})
+</h2>
+
+<ul class="game-list">
+
+    {% for game in drop_games[:5] %}
+        <li class="game-card game-item">
+
+            {% if game.image_url %}
+                <img src="{{ game.image_url }}" alt="Обложка">
+            {% else %}
+                <div class="no-cover">No Cover</div>
+            {% endif %}
+
+            <span class="game-title">{{ game.title }}</span>
+
+        </li>
+    {% endfor %}
+
+</ul>
+
+{% if drop_games|length > 5 %}
+    <details class="game-section">
+        <summary class="show-more">
+             Показать все дропнутые игры
+        </summary>
+
+        <ul class="game-list">
+            {% for game in drop_games[5:] %}
+                <li class="game-card game-item">
+
+                    {% if game.image_url %}
+                        <img src="{{ game.image_url }}" alt="Обложка">
+                    {% else %}
+                        <div class="no-cover">No Cover</div>
+                    {% endif %}
+
+                    <span class="game-title">{{ game.title }}</span>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </details>
+{% endif %}
+
+
+
+    <hr>
+
+    <!-- ⏳ ОЧЕРЕДЬ -->
+    <h2 class="section-title">
+    ⏳ В очереди ({{ queue_games|length }})
+</h2>
+
+<ul class="game-list">
+
+    {% for game in queue_games[:5] %}
+        <li class="game-card game-item">
+
+            {% if game.image_url %}
+                <img src="{{ game.image_url }}" alt="Обложка">
+            {% else %}
+                <div class="no-cover">No Cover</div>
+            {% endif %}
+
+            <span class="game-title">{{ game.title }}</span>
+
+        </li>
+    {% endfor %}
+
+</ul>
+
+{% if queue_games|length > 5 %}
+    <details class="game-section">
+        <summary class="show-more">
+             Показать всю очередь
+        </summary>
+
+        <ul class="game-list">
+            {% for game in queue_games[5:] %}
+                <li class="game-card game-item">
+
+                    {% if game.image_url %}
+                        <img src="{{ game.image_url }}" alt="Обложка">
+                    {% else %}
+                        <div class="no-cover">No Cover</div>
+                    {% endif %}
+
+                    <span class="game-title">{{ game.title }}</span>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </details>
+{% endif %}
+
+
+
+</div>
+
+<!-- 🔥 JS Поиск -->
+<script>
+    const searchInput = document.getElementById("profileSearch");
+
+    searchInput.addEventListener("keyup", function () {
+
+        let filter = searchInput.value.toLowerCase();
+        let games = document.querySelectorAll(".game-item");
+
+        games.forEach(function (game) {
+
+            let title = game.innerText.toLowerCase();
+
+            if (title.includes(filter)) {
+                game.style.display = "flex";
+            } else {
+                game.style.display = "none";
+            }
+
+        });
+
+    });
+</script>
+
+</body>
+</html>

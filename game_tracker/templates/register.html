@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация стримера</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1 class="glitch-title">🎥 Регистрация стримера</h1>
+
+    <p class="subtitle">
+        Чтобы создать профиль, нужно ввести PIN-код
+    </p>
+
+    <form method="POST" class="form">
+
+        <!-- Ник -->
+        <input type="text"
+               name="username"
+               placeholder="Введите ник"
+               required>
+
+        <!-- Пароль -->
+        <input type="password"
+               name="password"
+               placeholder="Введите пароль"
+               required>
+
+        <!-- PIN -->
+        <input type="password"
+               name="pin"
+               placeholder="Введите PIN-код"
+               required>
+
+        <button type="submit">Зарегистрироваться</button>
+
+    </form>
+
+    <p class="bottom-link">
+        Уже есть аккаунт?
+        <a href="{{ url_for('login') }}">Войти</a>
+    </p>
+
+</div>
+
+</body>
+</html>

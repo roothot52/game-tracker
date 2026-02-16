@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Стримеры</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="box">
+    <h1>🎥 Список стримеров</h1>
+
+    <ul>
+        {% for user in users %}
+            <li>
+                <a href="/profile/{{ user.username }}">
+                    {{ user.username }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="/dashboard">⬅ Назад в мой кабинет</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+/* -------------------- ОСНОВА -------------------- */
+
+body {
+    background: #0a0a0a;
+    font-family: monospace;
+    color: #eee;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Главный контейнер */
+.box {
+    margin: 60px auto;
+    width: 750px;
+    padding: 35px;
+    border: 2px solid #444;
+    background: rgba(20, 20, 20, 0.96);
+    box-shadow: 0 0 40px rgba(200, 200, 200, 0.15);
+    border-radius: 18px;
+}
+
+/* -------------------- ЗАГОЛОВОК -------------------- */
+
+h1 {
+    font-size: 42px;
+    color: #ddd;
+    text-transform: uppercase;
+    animation: glitch 1s infinite;
+    margin-bottom: 20px;
+}
+
+/* Glitch эффект */
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 0 #999, -2px 0 #222;
+    }
+    50% {
+        text-shadow: -2px 1px #666, 2px -1px #111;
+    }
+    100% {
+        text-shadow: 1px -1px #888, -1px 1px #000;
+    }
+}
+
+/* -------------------- НАВИГАЦИЯ -------------------- */
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* -------------------- СЕКЦИИ -------------------- */
+
+.section-title {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #bbb;
+    text-shadow: 1px 0 #444;
+}
+
+/* -------------------- ФОРМА -------------------- */
+
+.add-form {
+    margin-top: 15px;
+}
+
+input, select {
+    width: 80%;
+    padding: 12px;
+    margin: 10px auto;
+    display: block;
+
+    background: #111;
+    color: #eee;
+
+    border: 1px solid #555;
+    border-radius: 12px;
+
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 25px;
+    margin-top: 10px;
+
+    background: #222;
+    color: #eee;
+
+    border: 1px solid #666;
+    border-radius: 12px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #444;
+    box-shadow: 0 0 12px #777;
+}
+
+/* -------------------- СПИСКИ ИГР -------------------- */
+
+.game-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.game-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    background: rgba(50, 50, 50, 0.25);
+    border: 1px solid rgba(120, 120, 120, 0.2);
+
+    margin: 10px 0;
+    padding: 12px 15px;
+
+    border-radius: 14px;
+}
+
+/* Обложка Steam */
+.game-item img {
+    width: 120px;
+    border-radius: 10px;
+    border: 1px solid #444;
+}
+
+/* Название игры */
+.game-title {
+    flex: 1;
+    text-align: left;
+    font-size: 18px;
+    color: #eee;
+}
+
+/* Кнопка удаления */
+.delete-btn {
+    color: red;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    color: white;
+}
+
+/* Пустой список */
+.empty {
+    padding: 15px;
+    color: #666;
+    font-style: italic;
+}
+
+/* -------------------- ЛИНИИ -------------------- */
+
+hr {
+    border: none;
+    height: 1px;
+    background: #333;
+    margin: 25px 0;
+}
+
+.game-item form {
+    margin: 0;
+}
+
+.game-item button {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+.glitch-title {
+    font-size: 42px;
+    text-align: center;
+    animation: glitch 1s infinite;
+}
+
+.no-cover {
+    width: 120px;
+    height: 45px;
+    background: rgba(100, 100, 100, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+hr {
+    margin: 25px 0;
+    border: none;
+    border-top: 1px solid rgba(200, 200, 200, 0.15);
+}
+
+.streamer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.streamer-card {
+    padding: 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+    background: rgba(80,80,80,0.12);
+    transition: 0.2s;
+    text-align: center;
+}
+
+.streamer-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(200,200,200,0.15);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    border: 2px solid rgba(200,200,200,0.2);
+}
+
+.streamer-name {
+    color: #aaa;
+    font-size: 20px;
+    margin: 0;
+    animation: glitch 1.5s infinite;
+}
+
+.login-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #888;
+    text-decoration: none;
+}
+
+.auth-page {
+    background: #0d0d0d;
+    color: #ccc;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-box {
+    width: 420px;
+    background: rgba(30, 30, 30, 0.9);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.glitch-title {
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #eee;
+    text-transform: uppercase;
+}
+
+.auth-subtitle {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 25px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #111;
+    color: #eee;
+    font-size: 14px;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.auth-btn:hover {
+    background: #666;
+}
+
+.auth-link {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.auth-link a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+/* 🔍 SEARCH BOX FIX */
+.search-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.search-box input {
+    width: 65%;
+    max-width: 500px;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid #555;
+    background: #111;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box input::placeholder {
+    color: gray;
+}
+
+/* PROFILE GAME CARDS */
+
+.game-list {
+    list-style: none;
+    padding: 0;
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(20, 20, 20, 0.8);
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 14px;
+    transition: 0.2s;
+}
+
+.game-card:hover {
+    background: rgba(60, 60, 60, 0.6);
+}
+
+.game-card img {
+    width: 120px;
+    border-radius: 10px;
+}
+
+.game-title {
+    font-size: 16px;
+    color: #ddd;
+}
+
+.no-cover {
+    width: 120px;
+    height: 60px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: gray;
+}
+
+.count {
+    color: gray;
+    font-size: 15px;
+    margin-left: 6px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 2px solid #444;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+.profile-center {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    object-fit: cover;
+    margin-bottom: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.07);
+}
+
+.profile-name {
+    font-size: 28px;
+    color: #ddd;
+    margin: 0;
+}
+
+.twitch-status {
+    font-size: 15px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.twitch-status.online {
+    color: lime;
+}
+
+.twitch-status.offline {
+    color: gray;
+}
+
+.glitch-title {
+    font-size: 32px;
+    color: #eee;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.user-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    text-decoration: none;
+    color: #ddd;
+    transition: 0.2s;
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+}
+
+.add-game-box {
+    margin-bottom: 30px;
+}
+
+.add-game-box form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.add-game-box input,
+.add-game-box select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+}
+
+.add-game-box button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.12);
+    color: white;
+}
+
+.add-game-box button:hover {
+    background: rgba(255,255,255,0.22);
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: none;
+    color: #fff;
+    resize: none;
+    font-size: 14px;
+}
